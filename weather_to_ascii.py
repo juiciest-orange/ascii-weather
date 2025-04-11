@@ -17,7 +17,6 @@ os.environ["SELENIUM_SERVER_JAR"] = "selenium-server-standalone-2.41.0.jar"
 # note: I've put this jar file in the same folder as this python file
 
 # Start Webdriver for Chrome
-browser = webdriver.Chrome()
 cService = webdriver.ChromeService('/usr/bin/chromedriver') # For Chromium
 browser = webdriver.Chrome(service = cService)
 url = "https://www.weatherbug.com/weather-forecast/now/lake-tahoe-ca-95728"
@@ -42,7 +41,7 @@ cropped_image = image[y_start:y_end, x_start:x_end]
 cv2.imwrite(os.getcwd()+"/"+"cropped_image.png", cropped_image)
 
 
-my_art = AsciiArt.from_image(os.getcwd()+"/"+"cropped_image.png")
+my_art = AsciiArt.from_image(os.getcwd()+"/cropped_image.png")
 my_art.image = ImageEnhance.Brightness(my_art.image).enhance(0.2)
 my_art.to_html_file('/home/pi/www/html/ascii_art.html', columns=200, width_ratio=2,
 	additional_styles='font-size: 1;')
