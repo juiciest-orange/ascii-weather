@@ -43,5 +43,5 @@ cv2.imwrite(os.getcwd()+"/"+"cropped_image.png", cropped_image)
 
 my_art = AsciiArt.from_image(os.getcwd()+"/cropped_image.png")
 my_art.image = ImageEnhance.Brightness(my_art.image).enhance(0.2)
-my_art.to_html_file('/home/pi/www/html/ascii_art.html', columns=200, width_ratio=2,
+my_art.to_html_file('/var/www/html/ascii_art.html', columns=200, width_ratio=2,
 	additional_styles='font-size: 1;')
